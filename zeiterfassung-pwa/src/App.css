@@ -1,0 +1,77 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Focus styles for better accessibility */
+:focus {
+  outline: 2px solid #1976d2;
+  outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .MuiContainer-root {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  
+  /* Make date navigation more visible on small screens */
+  .MuiTypography-h5 {
+    font-size: 1.2rem;
+  }
+}
+
+/* High contrast mode adjustments for accessibility */
+@media (forced-colors: active) {
+  .MuiButton-contained {
+    border: 1px solid;
+  }
+  
+  .MuiPaper-root {
+    border: 1px solid;
+  }
+}
+
+/* Improve tap targets for mobile users */
+.MuiIconButton-root {
+  min-width: 48px;
+  min-height: 48px;
+}
