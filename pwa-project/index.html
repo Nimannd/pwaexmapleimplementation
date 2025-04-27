@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <title>Zeiterfassung PWA</title>
+</head>
+<body>
+    <header>
+        <h1>Zeiterfassung</h1>
+        <nav>
+            <button id="prev-day">&lt;</button>
+            <span id="current-date"></span>
+            <button id="next-day">&gt;</button>
+        </nav>
+    </header>
+    <main>
+        <section id="timestamps">
+            <h2>Zeitstempel</h2>
+            <button id="add-timestamp">Zeitstempel hinzufügen</button>
+            <ul id="timestamp-list"></ul>
+        </section>
+        <section id="summary">
+            <h2>Tageszusammenfassung</h2>
+            <div id="summary-content"></div>
+        </section>
+    </main>
+    <footer>
+        <button id="export-data">Exportieren</button>
+        <input type="file" id="import-data" accept=".json">
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
