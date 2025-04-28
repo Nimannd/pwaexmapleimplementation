@@ -20,8 +20,30 @@
     <main>
         <section id="timestamps">
             <h2>Zeitstempel</h2>
-            <button id="add-timestamp">Zeitstempel hinzufügen</button>
-            <ul id="timestamp-list"></ul>
+            <div id="timestamp-form">
+                <div class="form-group">
+                    <label for="timestamp-time">Zeit:</label>
+                    <input type="time" id="timestamp-time">
+                </div>
+                <div class="form-group">
+                    <label for="timestamp-label">Label:</label>
+                    <input type="text" id="timestamp-label" list="label-suggestions">
+                    <datalist id="label-suggestions"></datalist>
+                </div>
+                <div class="form-group">
+                    <label for="timestamp-comment">Kommentar:</label>
+                    <input type="text" id="timestamp-comment">
+                </div>
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="is-start-stamp">
+                    <label for="is-start-stamp">Startstempel</label>
+                </div>
+                <button id="add-timestamp">Zeitstempel hinzufügen</button>
+            </div>
+            <div class="timestamps-container">
+                <h3>Heutige Zeitstempel</h3>
+                <ul id="timestamp-list"></ul>
+            </div>
         </section>
         <section id="summary">
             <h2>Tageszusammenfassung</h2>
@@ -30,6 +52,7 @@
     </main>
     <footer>
         <button id="export-data">Exportieren</button>
+        <label for="import-data" class="import-label">Importieren</label>
         <input type="file" id="import-data" accept=".json">
     </footer>
     <script src="app.js"></script>

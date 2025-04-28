@@ -31,10 +31,22 @@
    - Nachfolgende Zeitstempel können ein Label und einen kurzen Kommentar enthalten.  
    - Bereits eingegebene Labels des aktuellen Tages werden zur Wiederverwendung vorgeschlagen.  
    - Ein Startstempel kann jederzeit durch ein einfaches Flag gesetzt werden, um Unterbrechungen zu markieren.
+   - Die Eingabe eines Labels ist optional, wobei unlabelierte Zeitstempel in der Zusammenfassung als "Ohne Bezeichnung" erscheinen.
 
 3. **Tageszusammenfassung:**  
-   - Die App soll die Zeit zwischen dem Startstempel (oder dem vorherigen Stempel) und dem aktuellen Stempel berechnen.  
-   - Die Zeiten sollen unter den jeweiligen Labels zusammengezählt und in einer Übersicht dargestellt werden.  
+   - Die App soll immer die Zeit zwischen zwei aufeinanderfolgenden Zeitstempeln berechnen.
+   - Die Zeitdauer zwischen zwei aufeinanderfolgenden Zeitstempeln wird dem Label des **späteren** Zeitstempels zugeordnet.
+   - Wenn ein Zeitstempel als Startstempel markiert ist, wird die Zeit zwischen dem vorherigen Zeitstempel und diesem Startstempel nicht berechnet und in der Zusammenfassung ignoriert.
+   - Ein Startstempel dient als Beginn einer neuen Zeiterfassungsperiode ohne Verbindung zur vorherigen Zeit.
+   - Beispiel:
+     * 8:00 (normal) → 9:00 "Arbeit" (normal) → 10:00 "Mittagspause" (normal):
+       * Zeit von 8:00-9:00 wird "Arbeit" zugeordnet
+       * Zeit von 9:00-10:00 wird "Mittagspause" zugeordnet
+     * 8:00 (normal) → 9:00 "Arbeit" (normal) → 12:00 "Mittagspause" (als Startstempel markiert) → 13:00 "Arbeit" (normal):
+       * Zeit von 8:00-9:00 wird "Arbeit" zugeordnet
+       * Zeit von 9:00-12:00 wird "Mittagspause" zugeordnet
+       * Die Zeit zwischen 12:00 und 13:00 wird nicht berechnet und nicht in die Zusammenfassung aufgenommen
+   - Die Zeiten sollen unter den jeweiligen Labels zusammengezählt und in einer Übersicht dargestellt werden.
 
 4. **Export und Import von Daten:**  
    - Es soll möglich sein, die Daten eines Tages als `.json`-Datei zu exportieren.  
@@ -64,6 +76,7 @@
    - Eine einfache und intuitive Benutzeroberfläche.  
    - Visuelles Feedback bei Aktionen (z. B. Hinzufügen eines Zeitstempels).  
    - Vorschläge für Labels basierend auf bereits eingegebenen Labels des aktuellen Tages.
+   - Der "Zeitstempel hinzufügen"-Button soll sich zu "Zeitstempel speichern" ändern, wenn ein bestehender Eintrag bearbeitet wird.
 
 2. **PWA-Features:**  
    - Möglichkeit, die App auf den Startbildschirm zu installieren.  
